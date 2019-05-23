@@ -17,7 +17,7 @@ driver = webdriver.Chrome(options=options)
 driver.get('https://www.ah.nl/bonus')
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(3)
+time.sleep(1)
 delay = 3 # seconds
 
 try:
