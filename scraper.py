@@ -4,7 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+import random
 
+outfile = open("bonus_lijst.html", "w")
 
 options = Options()
 options.headless = True
@@ -22,8 +24,15 @@ except TimeoutException:
     print("Loading took too much time!")
 
 products = driver.find_elements_by_class_name('product-cardview--bonus-group')
+
+outfile.write("<!doctype html>" +"\n" + "<html>" + "\n")
+
+
 for product in products:
-    print(product.get_attribute("outerHTML"))
+    nextline = str(product.get_attribute("outerHTML"))
+    outfile.write(nextline + "\n")
+
+outfile.write("</html>")
 
 driver.close()
 
