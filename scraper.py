@@ -17,8 +17,8 @@ driver = webdriver.Chrome(options=options)
 driver.get('https://www.ah.nl/bonus')
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-time.sleep(1)
-delay = 3 # seconds
+time.sleep(2)
+delay = 10 # seconds
 
 try:
    myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, '//*[@id="epp_index_10"]/article[10]')))
