@@ -28,27 +28,15 @@ try:
 except TimeoutException:
     print("Loading took too much time!")                         #check if loading is done correctly
 
-products = driver.find_elements_by_xpath("//*[@class='edc-container legend grid-item small-12 large-3 xlarge-2_4 xxlarge-2 legend--single edc-container--color-bonus column' or @class='product column product--searchandbrowse promotion-theme--ah product-cardview small-6 medium-6 large-3 xlarge-2_4 xxlarge-2 product-cardview--bonus-group']")
-#products = driver.find_elements_by_xpath("//*[@class='product column product--searchandbrowse promotion-theme--ah product-cardview small-6 medium-6 large-3 xlarge-2_4 xxlarge-2 product-cardview--bonus-group']")
-"""
-place = 0
-categoryplace = []
-for i in products:
-    if 'class="edc-container legend grid-item' in str(i.get_attribute("outerHTML")):
-        categoryplace.append(place)
-    place +=1
-
-print(categoryplace)
-"""""
+products = driver.find_elements_by_xpath("//*[@class='product column product--searchandbrowse promotion-theme--ah product-cardview small-6 medium-6 large-3 xlarge-2_4 xxlarge-2 product-cardview--bonus-group']")
 
 style = driver.find_elements_by_tag_name('head')
+styleHTML = str(style[0].get_attribute("innerHTML"))            #copy the style of the site
 
 outfile.write("<!doctype html>" +"\n" + "<html>" + "\n")        #Write HTML file
+outfile.write(styleHTML + "\n")                                 #write style
 
-styleHTML = str(style[0].get_attribute("innerHTML"))            #copy the style of the site
-outfile.write(styleHTML + "\n")
-
-for i in range(3):
+for i in range(3):                                              #choose 3 random products
     randomnumber = random.randint(0,len(products)-1)
     product = products[randomnumber]
     nextline = str(product.get_attribute("outerHTML"))
@@ -57,4 +45,3 @@ for i in range(3):
 outfile.write("</html>")
 
 driver.close()
-
