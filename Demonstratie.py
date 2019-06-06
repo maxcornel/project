@@ -17,7 +17,6 @@ driver = webdriver.Chrome(options=options)
 
 driver.get('https://www.ah.nl/bonus')                            #URL to scrape
 
-#driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 ActionChains(driver).move_to_element(driver.find_elements_by_class_name("link-notice__image"))
 time.sleep(2)                                                   #wait for page to load
 delay = 5
