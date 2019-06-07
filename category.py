@@ -26,8 +26,6 @@ try:
 except TimeoutException:
     print("Loading took too much time!")
 
-
-
 products = driver.find_elements_by_class_name('product-cardview--bonus-group')
 
 outfile.write("<!doctype html>" +"\n" + "<html>" + "\n")

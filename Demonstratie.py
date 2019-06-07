@@ -15,7 +15,7 @@ options.headless = True                                         #set options for
 
 driver = webdriver.Chrome(options=options)
 
-driver.get('https://www.ah.nl/bonus')                            #URL to scrape
+driver.get('https://www.ah.nl/bonus')                           #URL to scrape
 
 ActionChains(driver).move_to_element(driver.find_elements_by_class_name("link-notice__image"))
 time.sleep(2)                                                   #wait for page to load
@@ -35,7 +35,7 @@ styleHTML = str(style[0].get_attribute("innerHTML"))            #copy the style 
 outfile.write("<!doctype html>" +"\n" + "<html>" + "\n")        #Write HTML file
 outfile.write(styleHTML + "\n")                                 #write style
 
-for i in range(3):                                              #choose 3 random products
+for i in range(3):                                              #choose 3 random products and write them in the file
     randomnumber = random.randint(0,len(products)-1)
     product = products[randomnumber]
     nextline = str(product.get_attribute("outerHTML"))
