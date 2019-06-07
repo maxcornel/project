@@ -8,6 +8,8 @@ def getbeginnum(IDnum):
     return IDbegin
 
 def numberincat():
+    numoftiles = len(Webscraper.getproducts())
+
 
 
 def getendnum(IDnum):

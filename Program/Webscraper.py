@@ -8,10 +8,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 def getproducts():
+
     options = Options()
     options.headless = True                                         #set options for driver
     driver = webdriver.Chrome(options=options)
-    driver.get('https://www.ah.nl/bonus')                                          #URL to scrape
+    driver.get('https://www.ah.nl/bonus')                           #URL to scrape
 
     ActionChains(driver).move_to_element(driver.find_elements_by_class_name("link-notice__image"))
     time.sleep(3)                                                   #wait for page to load
@@ -28,7 +29,9 @@ def getproducts():
     products = {}
     for i in range(len(productslist)):
         products[i] = str(productslist[i].get_attribute('outerHTML'))
+
     driver.close()
+
     return products
 
 def getid():
@@ -49,6 +52,7 @@ def getid():
         print("Loading took too much time!")  # check if loading is done correctly
 
     productslist = driver.find_elements_by_xpath("//*[@class='edc-container legend grid-item small-12 large-3 xlarge-2_4 xxlarge-2 legend--single edc-container--color-bonus column' or @class='product column product--searchandbrowse promotion-theme--ah product-cardview small-6 medium-6 large-3 xlarge-2_4 xxlarge-2 product-cardview--bonus-group' or @class='product column product--searchandbrowse promotion-theme--ah product-cardview small-6 medium-6 large-3 xlarge-2_4 xxlarge-2']")
+
     productid = {}
     for i in range(len(productslist)):                          #make dictionary of all ID
         productid[i] = str(productslist[i].get_attribute('id'))
