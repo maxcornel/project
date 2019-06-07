@@ -1,5 +1,7 @@
 import Webscraper
 
+def updatedate():
+
 
 def getbeginnum(IDnum):
     IDbegin = {}
@@ -7,8 +9,8 @@ def getbeginnum(IDnum):
         IDbegin[k] = v+1
     return IDbegin
 
-def numberincat(IDnum):                                     #calculate number in categories
-    numoftiles = len(Webscraper.getproducts())
+def numberincat(IDnum,products):                                     #calculate number in categories
+    numoftiles = len(products)
     listofplace = list(IDnum.values())
     listofID = list(IDnum.keys())
     listofsize = []
@@ -24,12 +26,7 @@ def numberincat(IDnum):                                     #calculate number in
 
     return numincat
 
-'''def getendnum(IDnum):
-    IDend = {}
-    for (k,v)
-'''
-IDnum = Webscraper.getid()
-print(numberincat(IDnum))
+
 
 
 
