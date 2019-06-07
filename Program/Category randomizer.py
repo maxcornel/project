@@ -1,7 +1,5 @@
 import Webscraper
 
-def updatedate():
-
 
 def getbeginnum(IDnum):
     IDbegin = {}
@@ -26,7 +24,11 @@ def numberincat(IDnum,products):                                     #calculate 
 
     return numincat
 
-
+def updatedata():
+    products = Webscraper.getproducts()
+    IDnum = Webscraper.getid()
+    beginnumber = getbeginnum(IDnum)
+    numbersincategory = numberincat(IDnum, products)
 
 
 
