@@ -24,6 +24,6 @@ def getmymeal(meal, student): #meals are ontbijt, lunch, avondeten, borrel, snel
     outputfile6.close()
     webbrowser.open('file://' + os.path.realpath("sitepage.html"))
 
-getmymeal("avondeten", True)
+getmymeal("avondeten", False)
 
 
