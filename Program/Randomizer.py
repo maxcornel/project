@@ -36,3 +36,18 @@ def randommeal(meal):
 
     return randomproducts
 
+def randomalcohol():
+    IDnum = readdata.loadIDnum()
+    beginnumber = readdata.loadbeginnumber()
+    numberincategory = readdata.loadnumbersincategory()
+    productranges = {}
+    for i in IDnum.keys():
+        newlist = list(range(beginnumber[i],beginnumber[i]+numberincategory[i]))
+        productranges[i] = newlist
+
+    randomalcohol = []
+    randomalcohol = random.choice(productranges["bier-sterke-drank-aperitieven"]+productranges["wijn"])
+
+    return randomalcohol
+
+

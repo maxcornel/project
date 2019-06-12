@@ -2,9 +2,13 @@ import Randomizer
 import readdata
 import webbrowser, os
 
-def getmymeal(meal): #meals are ontbijt, lunch, avondeten, borrel, snellehap, snoepen
+def getmymeal(meal, student): #meals are ontbijt, lunch, avondeten, borrel, snellehap, snoepen
     outputfile6 = open("sitepage.html", "w")
+
     randomproducts = Randomizer.randommeal(meal)
+    if student == True:
+        randomproducts.append(Randomizer.randomalcohol())
+
     products = readdata.loadproducts()
 
     with open("style") as stylepage:
@@ -20,6 +24,6 @@ def getmymeal(meal): #meals are ontbijt, lunch, avondeten, borrel, snellehap, sn
     outputfile6.close()
     webbrowser.open('file://' + os.path.realpath("sitepage.html"))
 
-getmymeal("avondeten")
+getmymeal("avondeten", True)
 
 
