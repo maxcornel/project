@@ -62,10 +62,10 @@ def updatedata():
 
 updatedata()
 
-def loaddata():
+'''def loaddata():
 
 
-'''inputfile = open("testdic","r")
+inputfile = open("testdic","r")
 dictionary = {}
 for line in inputfile:
     k, v = line.rstrip().split()
