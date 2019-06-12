@@ -35,11 +35,11 @@ def updatedata():
     outputfile2 = open("IDnum", "w")
     outputfile3 = open("beginnumber", "w")
     outputfile4 = open("numbersincategory", "w")
-    outputfile5 = open("webstyle", "w")
+    outputfile5 = open("sitepage", "w")
 
     productskeys = products.keys()
     for key in productskeys:
-        nextline = str(key) + " " + str(products[key])
+        nextline = str(key) + " " + products[key]
         outputfile1.write(nextline + "\n")
 
     IDnumkeys = IDnum.keys()
@@ -57,7 +57,7 @@ def updatedata():
         nextline = str(key) + " " + str(numbersincategory[key])
         outputfile4.write(nextline + "\n")
 
-    outputfile5.write(webstyle)
+    outputfile5.write("<!doctype html>" +"\n" + "<html>" + "\n" + webstyle)
 
     outputfile1.close()
     outputfile2.close()
@@ -67,13 +67,3 @@ def updatedata():
 
 updatedata()
 
-'''def loaddata():
-
-
-inputfile = open("testdic","r")
-dictionary = {}
-for line in inputfile:
-    k, v = line.rstrip().split()
-    dictionary[k] = v
-inputfile.close()
-'''
