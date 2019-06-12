@@ -6,6 +6,7 @@ def loadproducts():
             products[int(k)] = v
     return products
 
+
 def loadIDnum():
     IDnum = {}
     with open("IDnum") as inputfile2:
@@ -13,6 +14,7 @@ def loadIDnum():
             k, v = line.rstrip().split(" ", 1)
             IDnum[k] = int(v)
     return IDnum
+
 
 def loadbeginnumber():
     beginnumber = {}
@@ -22,6 +24,7 @@ def loadbeginnumber():
             beginnumber[k] = int(v)
     return beginnumber
 
+
 def loadnumbersincategory():
     numbersincategory = {}
     with open("numbersincategory") as inputfile4:
@@ -29,3 +32,10 @@ def loadnumbersincategory():
             k, v = line.rstrip().split(" ", 1)
             numbersincategory[k] = int(v)
     return numbersincategory
+
+
+
+
+
+
+

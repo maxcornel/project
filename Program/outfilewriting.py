@@ -1,25 +1,24 @@
 import Randomizer
-import updatedata
 import readdata
-import datetime
+import webbrowser
 
-
-
-def getmymeal(meal):
-    outputfile5 = open("sitepage", "w")
-    lastupdate = datetime.date(2019,6,7)
-    if lastupdate == datetime.datetime.now():
-        updatedata.updatedate()
-
+def getmymeal(meal): #meals are ontbijt, lunch, avondeten, borrel, snellehap, snoepen
+    outputfile6 = open("sitepage.html", "w")
     randomproducts = Randomizer.randommeal(meal)
     products = readdata.loadproducts()
+
+    with open("style") as stylepage:
+        sitestyle = stylepage.read()
+        outputfile6.write(sitestyle + "\n")
 
     for i in randomproducts:
         product = products[i]
         nextline = str(product)
-        outputfile5.write(nextline + "\n")
+        outputfile6.write(nextline + "\n")
 
-    outputfile5.write("</html>")
-    outputfile5.close()
+    outputfile6.write("</html>")
+    outputfile6.close()
+    webbrowser.open("sitepage.html", new=1)
 
 getmymeal("ontbijt")
+
