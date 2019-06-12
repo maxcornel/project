@@ -1,6 +1,6 @@
 import Randomizer
 import readdata
-import webbrowser
+import webbrowser, os
 
 def getmymeal(meal): #meals are ontbijt, lunch, avondeten, borrel, snellehap, snoepen
     outputfile6 = open("sitepage.html", "w")
@@ -18,7 +18,8 @@ def getmymeal(meal): #meals are ontbijt, lunch, avondeten, borrel, snellehap, sn
 
     outputfile6.write("</html>")
     outputfile6.close()
-    webbrowser.open("sitepage.html", new=1)
+    webbrowser.open('file://' + os.path.realpath("sitepage.html"))
 
 getmymeal("ontbijt")
+
 
